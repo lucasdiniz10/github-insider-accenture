@@ -52,7 +52,7 @@ class App extends React.Component {
               <img src="/images/hero.svg" alt="" />
             </div>
           </section>
-          <ShowUser />
+          <ShowUser user={this.state.user} />
         </main>
       </div>
     );

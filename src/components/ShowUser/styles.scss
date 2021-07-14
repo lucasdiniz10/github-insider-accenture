@@ -1,0 +1,51 @@
+@import "../../styles/global.scss";
+
+.show-user-container {
+  margin-bottom: 6rem;
+
+  .show-user-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 4rem;
+    font-size: 2rem;
+    color: $gray-800;
+
+    img {
+      margin-right: 2rem;
+      height: 3rem;
+    }
+  }
+
+  .show-user-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1rem;
+
+    color: $gray-800;
+
+    p,
+    a {
+      font-size: 1rem;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      width: 14rem;
+      border-radius: 50%;
+
+      border: 2px solid $blue;
+    }
+
+    .spans {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

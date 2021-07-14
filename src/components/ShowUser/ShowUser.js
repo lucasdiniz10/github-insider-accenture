@@ -6,16 +6,22 @@ class ShowUser extends React.Component {
   render() {
     return (
       <section className="show-user-container">
-        <div className="show-user-content">
-          <img src="https://avatars.githubusercontent.com/u/47890460?v=4" alt="Github Avatar" />
-          <h1>Lucas Diniz</h1>
-          <p className="location">Recife, Pernambuco, Brasil</p>
-          <p className="bio">Desenvolvedor front-end, apaixonado por tecnologia e sempre disposto a aprender mais e trocar experiências.</p>
-          <a href="linkedin.com/in/lucas-alvarenga-diniz/" className="blog">linkedin.com/in/lucas-alvarenga-diniz/</a>
-          <p>Seguidores: <span>5</span></p>
-          <p>Seguindo: <span>7</span></p>
-          <p>Repositórios Públicos: <span>21</span></p>
+        <div className="show-user-title">
+          <img src="/images/github-alt.svg" alt="Ícone do Github" />
+          <h1>Resultado</h1>
+        </div>
 
+        <div className="show-user-content">
+          <img src={this.props.user.avatar_url} alt="Github Avatar" />
+          <h1>{this.props.user.name}</h1>
+          <p className="location">{this.props.user.location}</p>
+          <p className="bio">{this.props.user.bio}</p>
+          <a href={this.props.user.blog} className="blog">{this.props.user.blog}</a>
+          <div className="spans">
+            <p>Seguidores: <span>{this.props.user.followers}</span></p>
+            <p>Seguindo: <span>{this.props.user.following}</span></p>
+            <p>Repositórios Públicos: <span>{this.props.user.public_repos}</span></p>
+          </div>
         </div>
       </section>
     );
