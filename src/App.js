@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 
 import './styles/global.scss';
 import './styles/app.scss';
+import ShowUser from './components/ShowUser/ShowUser';
 
 class App extends React.Component {
   state = {
@@ -39,16 +40,19 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <main className="container">
-          <div className="title-container">
-            <h2>Busque <br />usuários<br /> no <span>Github</span></h2>
-            <form onSubmit={this.handleUserSearch.bind(this)}>
-              <input placeholder="Nome do usuário" type="text" onChange={this.handleTextChange.bind(this)} />
-              <button type="submit">Buscar</button>
-            </form>
-          </div>
-          <div className="hero-container">
-            <img src="/images/hero.svg" alt="" />
-          </div>
+          <section className="form-hero-section">
+            <div className="title-container">
+              <h1>Busque <br />usuários<br /> no <span>Github <img src="/images/github.svg" alt="Ícone do github" /></span></h1>
+              <form onSubmit={this.handleUserSearch.bind(this)}>
+                <input placeholder="Nome do usuário" type="text" onChange={this.handleTextChange.bind(this)} />
+                <button type="submit">Buscar</button>
+              </form>
+            </div>
+            <div className="hero-container">
+              <img src="/images/hero.svg" alt="" />
+            </div>
+          </section>
+          <ShowUser />
         </main>
       </div>
     );

@@ -4,5 +4,83 @@
   max-width: 1440px;
   width: 80vw;
   margin: 0 auto;
+
+  .form-hero-section {
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    .title-container {
+      margin: 0 auto;
+
+      font-size: 4rem;
+      color: $gray-800;
+
+      h1 {
+        overflow: wrap;
+      }
+
+      span {
+        color: $blue;
+        align-items: center;
+        position: relative;
+        img {
+          height: 4rem;
+          position: absolute;
+          right: -7rem;
+          bottom: 1rem;
+          height: 6rem;
+        }
+      }
+
+      form {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        input {
+          height: 2.5rem;
+          padding: 1rem;
+          border: 1px solid $white-line;
+
+          border-radius: 5px;
+
+          color: $gray-800;
+
+          outline: transparent;
+
+          &:focus {
+            box-shadow: 0 0 0.1rem $gray-800;
+          }
+        }
+
+        button {
+          height: 2.5rem;
+          border: 1px solid $white-line;
+
+          border-radius: 5px;
+
+          background: $blue;
+          color: $white-bg;
+
+          transition: filter 0.2s;
+
+          &:hover {
+            filter: brightness(0.9);
+          }
+        }
+      }
+    }
+
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 /* margin-bottom: 6rem; */
