@@ -1,0 +1,18 @@
+@import "../../styles/global.scss";
+
+.header-container {
+  height: 5rem;
+  border-bottom: 1px solid $white-line;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .header-content {
+    display: flex;
+
+    img {
+      height: 1.6rem;
+      margin: auto;
+    }
+  }
+}

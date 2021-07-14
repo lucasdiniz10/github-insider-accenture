@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React from 'react';
 import Header from './components/Header/Header';
+
 import './styles/global.scss';
+import './styles/app.scss';
 
 class App extends React.Component {
   state = {
@@ -36,12 +38,17 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <main>
-          <h2>Busque usuários no <span>Github</span></h2>
-          <form onSubmit={this.handleUserSearch.bind(this)}>
-            <input type="text" onChange={this.handleTextChange.bind(this)} />
-            <button type="submit">Buscar Usuário</button>
-          </form>
+        <main className="container">
+          <div className="title-container">
+            <h2>Busque <br />usuários<br /> no <span>Github</span></h2>
+            <form onSubmit={this.handleUserSearch.bind(this)}>
+              <input placeholder="Nome do usuário" type="text" onChange={this.handleTextChange.bind(this)} />
+              <button type="submit">Buscar</button>
+            </form>
+          </div>
+          <div className="hero-container">
+            <img src="/images/hero.svg" alt="" />
+          </div>
         </main>
       </div>
     );
