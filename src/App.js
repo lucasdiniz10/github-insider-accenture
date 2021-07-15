@@ -53,7 +53,7 @@ class App extends React.Component {
               </form>
             </div>
             <div className="hero-container">
-              <img src="/images/hero.svg" alt="" />
+              <img src="/images/hero.svg" alt="Mulher pesquisando" id="hero-image" />
             </div>
           </section>
           <ShowUser user={this.state.user} />

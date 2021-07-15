@@ -81,7 +81,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      img {
+        max-width: 600px;
+      }
     }
   }
 }
-/* margin-bottom: 6rem; */
+
+@media (max-width: 1490px) {
+  #hero-image {
+    width: 90%;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .container .form-hero-section .title-container {
+    width: 80%;
+  }
+
+  #hero-image {
+    width: 100%;
+    max-width: 500px;
+  }
+}
