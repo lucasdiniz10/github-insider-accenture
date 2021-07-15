@@ -21,16 +21,17 @@ class ShowUser extends React.Component {
             <h1>{this.props.user.name}</h1>
             <p className="location">{this.props.user.location}</p>
             <p className="bio">{this.props.user.bio}</p>
-            <a href={this.props.user.blog} className="blog">{this.props.user.blog}</a>
-            <a href={this.props.user.html_url} className="html_url">{this.props.user.html_url}</a>
+            <a href={this.props.user.blog} className="blog" target="_blank" rel="noreferrer">{this.props.user.blog}</a>
             <div className="spans">
               <p>Seguidores: <span>{this.props.user.followers}</span></p>
               <p>Seguindo: <span>{this.props.user.following}</span></p>
               <p>Repositórios Públicos: <span>{this.props.user.public_repos}</span></p>
             </div>
+            <button type="button" className="go-to-github">
+              <a href={this.props.user.html_url} className="html_url" target="_blank" rel="noreferrer">Ir para Github</a>
+            </button>
           </div>
         }
-
       </section>
     );
   }

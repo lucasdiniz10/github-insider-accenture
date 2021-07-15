@@ -24,12 +24,16 @@ class App extends React.Component {
     const emptyField = this.state.text.trim() === '';
 
     if (!emptyField) {
-      const githubUser = await axios.get(`https://api.github.com/users/${this.state.text}`)
-        .then(response => response.data)
+      try {
+        const githubUser = await axios.get(`https://api.github.com/users/${this.state.text}`)
+          .then(response => response.data)
 
-      this.setState({
-        user: githubUser,
-      })
+        this.setState({
+          user: githubUser,
+        })
+      } catch (error) {
+        alert(`${error.message} - Tente Novamente`)
+      }
     } else {
       alert("Preencha o campo de busca corretamente.");
     }
