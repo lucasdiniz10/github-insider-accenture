@@ -34,6 +34,7 @@ class App extends React.Component {
         })
       } catch (error) {
         alert(`${error.message} - Tente Novamente`)
+        this.setState({ text: '' })
       }
     } else {
       alert("Preencha o campo de busca corretamente.");
@@ -49,7 +50,7 @@ class App extends React.Component {
             <div className="title-container">
               <h1>Busque <br />usuários<br /> no <span>Github <img src="/images/github.svg" alt="Ícone do github" /></span></h1>
               <form onSubmit={this.handleUserSearch.bind(this)}>
-                <input placeholder="Nome do usuário" type="text" onChange={this.handleTextChange.bind(this)} />
+                <input placeholder="Nome do usuário" type="text" value={this.state.text} onChange={this.handleTextChange.bind(this)} />
                 <button type="submit">Buscar</button>
               </form>
             </div>
