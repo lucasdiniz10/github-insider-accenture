@@ -12,7 +12,7 @@ class ShowUser extends React.Component {
         </div>
         {!this.props.user.id ?
           <div className="show-user-content">
-            <strong>Ainda sem resultado =(</strong>
+            <strong>Ainda sem resultado 😢</strong>
             <p>Busque por um usuário</p>
           </div>
           :

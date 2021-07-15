@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import './styles/global.scss';
 import './styles/app.scss';
 import ShowUser from './components/ShowUser/ShowUser';
+import Footer from './components/Footer/Footer';
 
 class App extends React.Component {
   state = {
@@ -58,6 +59,7 @@ class App extends React.Component {
           </section>
           <ShowUser user={this.state.user} />
         </main>
+        <Footer />
       </div>
     );
   }
