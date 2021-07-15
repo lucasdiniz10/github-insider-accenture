@@ -8,6 +8,12 @@ import ShowUser from './components/ShowUser/ShowUser';
 import Footer from './components/Footer/Footer';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.cardUser = React.createRef();
+    this.pageTop = React.createRef();
+  }
+
   state = {
     text: '',
     user: {},
@@ -19,6 +25,14 @@ class App extends React.Component {
     })
   }
 
+  executeScrollToTop = () => this.pageTop.current.scrollIntoView();
+
+  executeScroll = () => { this.cardUser.current.scrollIntoView() };
+
+  componentDidMount() {
+    this.executeScrollToTop()
+  }
+
   async handleUserSearch(e) {
     e.preventDefault()
 
@@ -27,11 +41,13 @@ class App extends React.Component {
     if (!emptyField) {
       try {
         const githubUser = await axios.get(`https://api.github.com/users/${this.state.text}`)
-          .then(response => response.data)
-
+          .then(response => response.data);
         this.setState({
           user: githubUser,
         })
+        if (this.state.user.id) {
+          this.executeScroll();
+        }
       } catch (error) {
         alert(`${error.message} - Tente Novamente`)
         this.setState({ text: '' })
@@ -43,7 +59,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" ref={this.pageTop}>
         <Header />
         <main className="container">
           <section className="form-hero-section">
@@ -58,6 +74,7 @@ class App extends React.Component {
               <img src="/images/hero.svg" alt="Mulher pesquisando" id="hero-image" />
             </div>
           </section>
+          <div className="scroll-to" ref={this.cardUser}></div>
           <ShowUser user={this.state.user} />
         </main>
         <Footer />
