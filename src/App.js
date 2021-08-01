@@ -18,6 +18,7 @@ class App extends React.Component {
   state = {
     text: '',
     user: {},
+    repositories: [],
   }
 
   handleTextChange(e) {
@@ -43,8 +44,12 @@ class App extends React.Component {
       try {
         const githubUser = await axios.get(`https://api.github.com/users/${this.state.text}`)
           .then(response => response.data);
+
+        const userRepositories = await axios.get(githubUser.repos_url).then(response => response.data);
+
         this.setState({
           user: githubUser,
+          repositories: userRepositories
         })
         if (this.state.user.id) {
           this.executeScroll();
@@ -77,12 +82,14 @@ class App extends React.Component {
           </section>
           <div className="scroll-to" ref={this.cardUser}></div>
           <ShowUser user={this.state.user} />
-          <section className="repositories-list">
-            <div className="repositóries-title">
-              <h1>Repositórios</h1>
-            </div>
-            <RepositoriesList repositories={this.state.user.repos_url} />
-          </section>
+          {this.state.repositories.length >= 1 &&
+            <section className="repositories-list">
+              <div className="repositóries-title">
+                <h1>Repositórios</h1>
+              </div>
+              <RepositoriesList repositories={this.state.repositories} />
+            </section>
+          }
         </main>
         <Footer />
       </div>
