@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React from 'react';
-import Header from './components/Header/Header';
+import Header from './components/Header';
+import ShowUser from './components/ShowUser';
+import Footer from './components/Footer';
 
 import './styles/global.scss';
 import './styles/app.scss';
-import ShowUser from './components/ShowUser/ShowUser';
-import Footer from './components/Footer/Footer';
+import RepositoriesList from './components/RepositoriesList';
 
 class App extends React.Component {
   constructor(props) {
@@ -76,6 +77,12 @@ class App extends React.Component {
           </section>
           <div className="scroll-to" ref={this.cardUser}></div>
           <ShowUser user={this.state.user} />
+          <section className="repositories-list">
+            <div className="repositóries-title">
+              <h1>Repositórios</h1>
+            </div>
+            <RepositoriesList repositories={this.state.user.repos_url} />
+          </section>
         </main>
         <Footer />
       </div>

@@ -1,0 +1,85 @@
+@import "../../styles/global.scss";
+
+.repositories-list {
+  .container {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: $white;
+    border-radius: 10px;
+    border: 1px solid $white-line;
+    line-height: 2rem;
+
+    list-style-type: none;
+
+    & + li {
+      margin-top: 1.5rem;
+    }
+
+    &:hover {
+      box-shadow: 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .details {
+      overflow: hidden;
+
+      strong,
+      p,
+      small {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      strong {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1rem;
+        margin-right: 2rem;
+      }
+
+      small {
+        font-size: 0.8rem;
+        color: $blue;
+
+        &::before {
+          content: "#";
+        }
+        &::after {
+          content: " ";
+        }
+      }
+    }
+
+    .btn {
+      max-width: 100%;
+
+      button {
+        width: 100%;
+        padding: 0.8rem;
+
+        border: none;
+        border-radius: 5px;
+
+        background: $blue;
+        color: $white-bg;
+        white-space: nowrap;
+
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.9);
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
